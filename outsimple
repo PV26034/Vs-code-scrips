@@ -1,0 +1,2 @@
+a=float(input("intuduza um numero para a? "))
+b=float(input("intuduzui para a:", a))
