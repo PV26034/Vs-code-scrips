@@ -1,2 +1,20 @@
-a=float(input("intuduza um numero para a? "))
-b=float(input("intuduzui para a:", a))
+a=float(input("intuduza um numero para a "))
+print(("intuduzui para a:", a))
+b=float(input("intuduza um numero para b "))
+print(("intuduzui para a:", b))
+print(float(a+b))
+print(float(a-b))
+print(float(a*b))
+print(float(a/b))
+print("\nThat's all, folks!")
+
+
+print("agora proximo passo")
+x=float(input("Dé um valor a x! "))
+y=1/(x-1./x-1./x-1./x-1)
+print("y=", y)
+print("\nThat`s all, folks")
+
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
