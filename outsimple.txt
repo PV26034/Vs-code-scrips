@@ -1,3 +1,6 @@
+H=float(input("coloca as horas "))
+M=float(input("coloca os minitos "))
+print("vamos começar este teste")
 a=float(input("intuduza um numero para a "))
 print(("intuduzui para a:", a))
 b=float(input("intuduza um numero para b "))
