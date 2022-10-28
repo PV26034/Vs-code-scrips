@@ -15,9 +15,5 @@ y=1/(x-1./x-1./x-1./x-1)
 print("y=", y)
 print("\nThat`s all, folks")
 
-h=float(input("coloca as horas "))
-m=float(input("coloca os minitos "))
-T=h-H
-t=m-M
-print("tempo demorado")
-print(float(T),("h"),(t),("m"))
+n=int(input("dá valor a n "))
+print(n>=100)
