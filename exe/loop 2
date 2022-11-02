@@ -17,4 +17,26 @@ number = int(input("Enter the number: "))
 while number != secret_number:
     print("Ha ha! You're stuck in my loop!")
     number = int(input("Enter the number again: "))
-print(secret_number, "Well done, muggle! You are free now.")
+print(secret_number, "Well done, muggle!")
+
+print("second game")
+
+s3cret_number = 55
+
+print(
+"""
++================================+
+| Muggle!                        |
+| Enter an integer number        |
+| and guess what number I've     |
+| picked for you.                |
+| So, what is the secret number? |
++================================+
+""")
+
+number1 = int(input("Enter the number: "))
+
+while number1 != secret_number:
+    print("Ha ha! You're stuck in my loop!")
+    number1 = int(input("Enter the number again: "))
+print(s3cret_number, "Well done, muggle! You are free now.")
