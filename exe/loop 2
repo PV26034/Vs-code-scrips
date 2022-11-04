@@ -1,3 +1,11 @@
+#
+"""
+Um mágico júnior escolheu um número secreto. 
+Ele escondeu-o numa variável chamada secret_number. 
+Ele quer que todos os que executam o seu programa 
+joguem o jogo do Adivinhe o número secreto, 
+e adivinhe que número escolheu para eles.
+""" 
 
 secret_number = 777
 
