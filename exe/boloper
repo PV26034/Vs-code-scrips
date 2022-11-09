@@ -1,0 +1,5 @@
+while True:
+    word=input("you are in infinity loop.\nEnter the secret word to exit the loop: ")
+    if word=="chupacabra":
+            break
+print("you sucecefull exit the loop")
