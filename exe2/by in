@@ -1,0 +1,9 @@
+c0=int(input("coloca un numero"))
+if c0>1:
+    steps=0
+    while c0 !=0:
+        if c0 %2!=0:
+            cnew = 3 * c0 + 1
+        else:
+            cnew
+
