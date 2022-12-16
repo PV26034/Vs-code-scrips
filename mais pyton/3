@@ -1,5 +1,5 @@
 white_pawn="p"
-squares=[x ** 2 for x in range (10)]
+squares=[x ** 2 for x in range (1200)]
 row=[x for x in squares if x%2 !=0]
 print (row)
 print (len(row))

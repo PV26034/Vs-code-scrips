@@ -1,0 +1,12 @@
+temp1=int(input("tempo inicial(H): "))
+temp2=int(input("tempo inicial(m): "))
+event=int(input("duração: "))
+h=temp2+event
+if h>60:
+        j=h-60
+        k=temp1+1
+else:
+        j=h
+        k=temp1
+print(k, ":", j)
+
