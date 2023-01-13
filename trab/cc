@@ -1,0 +1,112 @@
+print(
+"""
+ __________________________________
+|          4   em    linha         |
+|----------------------------------|
+| O jogo é simples, dois jogadores |
+| o primeiro a colucar 4 "fichas"  |
+| segidas seja em linha, coluna ou |
+|         diagonal ganha.          |
+|__________________________________|
+"""
+)
+coluna_T = 7 #defenir o numero de colunas do tabuleiro 
+Linha_T = 6 #defenir o numero de linhas do tabuleiro => nº de jogadas
+
+
+class tabuleiro(): #definir o tabuleiro
+    def __init__(self):
+        self.Tabuleiro = [[' ' for _ in range(coluna_T)] for _ in range(Linha_T)] 
+        self.Jogadas = 0
+        self.ultima_jogada = [-1, -1] # [r, c]
+
+    def print_tabuleiro(self): #dar print do tabuleiro
+        print("\n")
+        for r in range(coluna_T):
+            print(f"  ({r+1}) ", end="")
+        print("\n")
+
+        for r in range(Linha_T):
+            print('|', end="")
+            for c in range(coluna_T):
+                print(f"  {self.Tabuleiro[r][c]}  |", end="")
+            print("\n")
+
+        print(f"{'-' * 42}\n")
+
+    def which_turn(self): #definir turno e 'peças' dos jogadores
+        mov = ['X', 'O']
+        return mov[self.Jogadas % 2]
+    
+    def in_bounds(self, r, c):
+        return (r >= 0 and r < Linha_T and c >= 0 and c < coluna_T)
+
+    def turn(self, coluna):
+        for i in range(Linha_T-1, -1, -1):
+            if self.Tabuleiro[i][coluna] == ' ':
+                self.Tabuleiro[i][coluna] = self.which_turn()
+                self.ultima_jogada = [i, coluna]
+
+                self.Jogadas += 1
+                return True
+
+        return False
+
+    def vencedor(self): #código de verificação de jogadas(verificar se ha vencedores)
+        última_linha = self.ultima_jogada[0]
+        última_coluna = self.ultima_jogada[1]
+        última_letra = self.Tabuleiro[última_linha][última_coluna]
+
+        direções = [[[-1, 0], 0, True],    #esquerda
+                      [[1, 0], 0, True],   #direita
+                      [[0, -1], 0, True],  #em baixo
+                      [[0, 1], 0, True],   #a cima
+                      [[-1, -1], 0, True], #esqueda; em baixo
+                      [[1, 1], 0, True],   #direita; a cima
+                      [[-1, 1], 0, True],  #esqueda; a cima
+                      [[1, -1], 0, True]]  #direita; em baixo
+        
+        for a in range(4): #definir o meio de vitória no jogo (4 peças iguais seguidas)
+            for d in direções:
+                r = última_linha + (d[0][0] * (a+1))
+                c = última_coluna + (d[0][1] * (a+1))
+
+                if d[2] and self.in_bounds(r, c) and self.Tabuleiro[r][c] == última_letra:
+                    d[1] += 1
+                else:
+                    d[2] = False
+
+        for i in range(0, 7, 2):
+            if (direções[i][1] + direções[i+1][1] >= 3):
+                self.print_tabuleiro()
+                print(f"{última_letra} é o vencedor!")
+                return última_letra   
+
+        return False
+
+def play():       # forma de introduzir as jogadas 1 sv 1
+
+    jogo = tabuleiro()
+
+    game_over = False
+    while not game_over:
+        jogo.print_tabuleiro()
+
+        Jogada_validada = False
+        while not Jogada_validada:
+            user_move = input(f"{jogo.which_turn()}'turno escolha uma coluna entre (1-{coluna_T}): ")
+            try:
+                Jogada_validada = jogo.turn(int(user_move)-1)
+                
+            except:
+                print(f"Por favor escolha um número entre 1 a {coluna_T}")
+
+        game_over = jogo.vencedor()
+        
+        if not any(' ' in x for x in jogo.Tabuleiro):
+            print("Empate!")
+            return
+
+
+if __name__ == '__main__':
+    play()
